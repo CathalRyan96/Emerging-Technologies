@@ -15,10 +15,10 @@ def read_data():
         train_lbl = f.read()
 
     with gzip.open('data/t10k-labels-idx1-ubyte.gz', 'rb') as f:
-        train_lbl = f.read()
+        t10k_lbl = f.read()
 
     with gzip.open('data/t10k-images-idx3-ubyte.gz', 'rb') as f:
-        train_lbl = f.read()
+        t10k_img = f.read()
 
     print("File Type: ", type(train_img))
     print(train_img[0:4])
