@@ -27,3 +27,7 @@ The content that is required is as follows:
 1. First you need to make sure you have anaconda installed in order to run the script. Once it installed correctly, simply navigate to the script file in the command prompt and type "python digit-rec.py"
 
 2. In order to run the jupyter note books, simply navigate to the "Emerging-Technologies" folder in the command prompt and type "jupter notebook". This will then open the notebooks in your preffered browser.
+
+<h2>Author</h2>
+
+[Cathal Ryan](https://github.com/CathalRyan96)
