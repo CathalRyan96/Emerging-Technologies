@@ -88,10 +88,20 @@ def Tests():
     with gzip.open('data/train-labels-idx1-ubyte.gz', 'rb') as f:
         train_lbl = f.read()
 
+    with gzip.open('data/t10k-labels-idx1-ubyte.gz', 'rb') as f:
+        t10k_lbl = f.read()
+
+    with gzip.open('data/t10k-images-idx3-ubyte.gz', 'rb') as f:
+        t10k_img = f.read()
+
      # Read all the imported folders
     train_img = ~np.array(list(train_img[16:])).reshape(
         60000, 28, 28).astype(np.uint8) / 255.0
     train_lbl = np.array(list(train_lbl[8:])).astype(np.uint8)
+
+    t10k_img = ~np.array(list(t10k_img[16:])).reshape(
+        10000, 784).astype(np.uint8) / 255.0
+    t10k_lbl = np.array(list(t10k_lbl[8:])).astype(np.uint8)
 
     # Start a neural network, building it by layers.
     model = kr.models.Sequential()
@@ -111,10 +121,14 @@ def Tests():
     encoder.fit(train_lbl)
     outputs = encoder.transform(train_lbl)
 
+    print("Tests are now starting...")
+    from random import randint
+
+    # performs 10 tests
     for i in range(10):
         print(i, encoder.transform([i]))
 
-    print(encoder.inverse_transform(model.predict(test_img)) == test_lbl).sum()
+    print(encoder.inverse_transform(model.predict(t10k_img)) == t10k_lbl).sum()
 
 
 read_data()
