@@ -15,6 +15,15 @@ The content that is required is as follows:
 5. A Jupyter Notebook explaining how the above Python Script works and disscussing its performance.
 
 <h2>Technology Used</h2>
+
 1. Visual Studio Code
+
 2. Github
+
 3. Python Programming Language
+
+<h2>How to run this repository</h2>
+
+1. First you need to make sure you have anaconda installed in order to run the script. Once it installed correctly, simply navigate to the script file in the command prompt and type "python digit-rec.py"
+
+2. In order to run the jupyter note books, simply navigate to the "Emerging-Technologies" folder in the command prompt and type "jupter notebook". This will then open the notebooks in your preffered browser.
