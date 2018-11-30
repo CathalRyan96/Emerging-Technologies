@@ -31,7 +31,7 @@ def read_data():
         10000, 28, 28).astype(np.uint8) / 255.0
     t10k_lbl = np.array(list(t10k_lbl[8:])).astype(np.uint8)
 
-    # Reshape train_img
+    # Reshape train_img/ changes it to an array
     inputs = train_img.reshape(60000, 784)
 
     encoder = pre.LabelBinarizer()
@@ -39,6 +39,20 @@ def read_data():
     outputs = encoder.transform(train_lbl)
 
     print(train_lbl[0], outputs[0])
+
+
+def startNeuralNetwork():
+
+    # Start a neural network, building it by layers.
+    model = kr.models.Sequential()
+
+    # Add a hidden layer with 1000 neurons and an input layer with 784.
+    model.add(kr.layers.Dense(units=500, activation='linear', input_dim=784))
+    model.add(kr.layers.Dense(units=400, activation='relu'))
+    model.add(kr.layers.Dense(units=200, activation='relu'))
+
+    # Add a three neuron output layer.
+    model.add(kr.layers.Dense(units=10, activation='softmax'))
 
 
 read_data()
