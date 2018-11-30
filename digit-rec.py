@@ -2,11 +2,10 @@
 import gzip
 import numpy as np
 import keras as kr
+import sklearn.preprocessing as pre
 
 
 def read_data():
-    # Start a neural network
-    model = kr.models.Sequential()
 
     with gzip.open('data/train-images-idx3-ubyte.gz', 'rb') as f:
         train_img = f.read()
@@ -29,11 +28,17 @@ def read_data():
     train_lbl = np.array(list(train_lbl[8:])).astype(np.uint8)
 
     t10k_img = ~np.array(list(t10k_img[16:])).reshape(
-        60000, 28, 28).astype(np.uint8) / 255.0
+        10000, 28, 28).astype(np.uint8) / 255.0
     t10k_lbl = np.array(list(t10k_lbl[8:])).astype(np.uint8)
 
     # Reshape train_img
     inputs = train_img.reshape(60000, 784)
+
+    encoder = pre.LabelBinarizer()
+    encoder.fit(train_lbl)
+    outputs = encoder.transform(train_lbl)
+
+    print(train_lbl[0], outputs[0])
 
 
 read_data()
