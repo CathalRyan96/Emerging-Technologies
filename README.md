@@ -13,3 +13,8 @@ The content that is required is as follows:
 4. A Python Script that takes an image file containing handwritten digits and identifies the digit using a supervised learning algorithm and the MNIST dataset.
 
 5. A Jupyter Notebook explaining how the above Python Script works and disscussing its performance.
+
+<h2>Technology Used</h2>
+1. Visual Studio Code
+2. Github
+3. Python Programming Language
